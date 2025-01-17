@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>X-Ingestion</title>
-  </head>
-  <body>
-    <button id="scrape">Scrape Posts</button>
-    <script src="popup.js"></script>
-  </body>
+<head>
+  <title>X-Ingestion</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      text-align: center;
+      padding-top: 50px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+X Post Training Ingestor (c)
+<button id="scrape">Scrape Posts</button>
+<div id="live-view"></div>
+<script src="popup.js"></script>
+</body>
 </html>

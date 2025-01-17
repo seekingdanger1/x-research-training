@@ -39,7 +39,9 @@ function parsePosts() {
     console.clear();
     console.log(formatStatusBar(memoryUsage, postCount));
     console.log("Recent post: " + JSON.stringify(window.validPosts[postCount - 1]));
-
+        const liveView = document.getElementById('live-view');
+    console.log(liveView)
+    chrome.runtime.sendMessage({ type: 'updateView', data: window.validPosts });
 }
 
 parsePosts();
