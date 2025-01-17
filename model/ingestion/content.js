@@ -8,9 +8,9 @@
         timestamp: lines[4] || '',
         content: lines.slice(5, lines.findIndex(line => line.startsWith('Zitat'))).join(' ') || '',
         quotes: lines.includes('Zitat') ? lines.slice(lines.findIndex(line => line.startsWith('Zitat')) + 1, lines.length - 3).join(' ') : '',
-        likes: lines[lines.length - 3] || '0',
-        retweets: lines[lines.length - 2] || '0',
-        comments: lines[lines.length - 1] || '0'
+        retweets: lines[lines.length - 3] || '0',
+        likes: lines[lines.length - 2] || '0',
+        impressions: lines[lines.length - 1] || '0'
       };
     });
     console.log(JSON.stringify(parsedPosts, null, 2));
