@@ -1,34 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>X-Ingestion</title>
+  <meta charset="UTF-8" />
+  <title>X Post Training Ingestor</title>
   <style>
+    /* Use a modern Apple-like system font stack */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f2f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      width: 420px; /* Wider than the default extension popup */
+      height: 480px; /* Reduced height */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* Container to keep content neatly centered and minimal */
+    .container {
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Title style */
+    h1 {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
       text-align: center;
-      padding-top: 50px;
+      color: #1da1f2; /* Subtle brand color (X/Twitter) */
     }
+
+    /* Minimal descriptive text */
+    p.description {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.4;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    /* Simple instructions, kept minimal */
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0;
+    }
+
+    ul li {
+      font-size: 0.85rem;
+      color: #555;
+      margin: 4px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    ul li::before {
+      content: "•";
+      color: #1da1f2;
+      margin-right: 8px;
+    }
+
+    /* Button style: subtle, modern, slightly rounded */
     button {
-      background-color: #007bff;
-      color: white;
+      background-color: #1da1f2;
+      color: #fff;
       border: none;
-      padding: 15px 30px;
-      font-size: 16px;
-      border-radius: 5px;
+      outline: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 10px 16px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
+      transition: background-color 0.2s ease;
+      margin: 0 auto;
+      display: block;
     }
+
     button:hover {
-      background-color: #0056b3;
+      background-color: #1480bf;
+    }
+
+    /* Section to display scraped data */
+    #live-view {
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+      max-height: 120px; /* Smaller area; scroll if needed */
+      overflow-y: auto;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #333;
+    }
+
+    #live-view h2 {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: #1da1f2;
     }
   </style>
 </head>
 <body>
-X Post Training Ingestor (c)
-<button id="scrape">Scrape Posts</button>
-<div id="live-view"></div>
+<div class="container">
+  <h1>X Post Training Ingestor</h1>
+  <p class="description">
+    Capture real-time data from X (formerly Twitter) for quick and efficient training.
+  </p>
+
+  <ul>
+    <li>Go to the X page you want to scrape.</li>
+    <li>Scroll to load enough posts in view.</li>
+    <li>Click the button below to gather the post data.</li>
+  </ul>
+
+  <!-- Primary action button -->
+  <button id="scrape">Scrape Posts</button>
+
+  <!-- Live view of scraped content -->
+  <div id="live-view">
+    <h2>Scraped Data</h2>
+    <!-- The actual scraped posts will appear here via popup.js -->
+  </div>
+</div>
+
+<!-- Link to your script (keep or adapt your existing logic) -->
 <script src="popup.js"></script>
 </body>
 </html>
